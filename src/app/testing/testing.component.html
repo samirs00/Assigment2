@@ -1,0 +1,36 @@
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+
+                <h2>Testing Simulator</h2>
+
+                <form #signInForm="ngForm">
+                    <div class="form-group">
+                            <textarea #output="ngModel" rows="6" name="output" id="idOutput" class="form-control" 
+                            [(ngModel)]="responseOutput" readonly>
+
+                            </textarea>
+                        <div class="error-message" *ngIf="output.errors && (output.dirty || output.touched)">
+                            <div [hidden]="!output.errors.required">
+                                required*
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">Keypad input</label>
+                        <input #email="ngModel" name="email" id="email" class="form-control" type="text"
+                            [(ngModel)]="enterValue" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button  (click)="testHandler(signInForm,$event)" class="btn btn-primary">
+                            Test
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
